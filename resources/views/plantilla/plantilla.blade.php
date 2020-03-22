@@ -41,7 +41,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>PANEL DE INICIO</span></a>
       </li>
@@ -53,6 +53,12 @@
       <div class="sidebar-heading">
         Interface
       </div>
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('incidencia')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Registrar Incidencia</span></a>
+      </li>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
