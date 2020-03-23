@@ -4,12 +4,52 @@
                   ->join('roles','roles.id','role_user.role_id')
                   ->where('trabajador.trab_dni','=',Auth::user()->usuario)->first();
  ?>
-
 @extends('plantilla.plantilla')
-@section('content')
-@if(Auth::user()->hasrole('admin'))
-<h1>
-	dsda
-</h1>
-@endif
+@section('contenido')
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Bienvenido: </h1>
+  <h2 class="h3 mb-0 text-gray-800">Cargo: </h2>
+</div>
+<div class="row">
+    @if(Auth::user()->hasrole('admin'))
+        @if($trab_data->trab_est == 1)
+
+
+
+
+		<h1>Administrador</h1>
+
+
+
+	    @else
+		    <div class="d-sm-flex align-items-center justify-content-between my-4">
+		      <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
+		    </div>
+   	    @endif
+ @endif
+<!-- ------------------------------------------------------------------------------ -->
+@if(Auth::user()->hasrole('tecn'))
+  @if($trab_data->trab_est == 2)
+	   
+	   <h1>Tecnico</h1>
+
+	    @else
+		    <div class="d-sm-flex align-items-center justify-content-between my-4">
+		      <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
+		    </div>
+   	    @endif
+ @endif
+<!-- --------------------------------------------------------------------------------- -->
+ @if(Auth::user()->hasrole('agent'))
+  @if($trab_data->trab_est == 3)
+	   
+		<h1>Agente</h1>
+
+	    @else
+		    <div class="d-sm-flex align-items-center justify-content-between my-4">
+		      <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
+		    </div>
+   	    @endif
+ @endif
+</div>
 @endsection

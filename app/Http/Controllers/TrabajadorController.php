@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\trabajador;
+use App\RoleUser;
 use Illuminate\Http\Request;
+use DB;
 
 class AgenteController extends Controller
 {
     public function index()
     {
-        $data = DB::table('incidencia')
-                    ->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
-                    ->get();
+        $data = DB::table('trabajador')
+                ->join('role_user','role_user.user_id','trabajador.trab_usuario')
+                ->where('role_user.role_id','=','2')
+                ->get();
         return view('incidencia.index',['incidencia'=>$data]);
     }
 

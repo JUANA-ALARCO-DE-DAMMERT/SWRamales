@@ -22,4 +22,4 @@ Auth::routes(['reset'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 //controladores 
-Route::resource('incidencia','IncidenciaController');
+Route::resource('incidencia','IncidenciaController')->middleware('auth');;
