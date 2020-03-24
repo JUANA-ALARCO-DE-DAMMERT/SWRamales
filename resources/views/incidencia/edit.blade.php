@@ -20,28 +20,31 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Nombre de Agente</label>
-                <select name="inc_agente" class="form-control selectpicker" data-live-search="true" required>
-                    <option value="" hidden>--- Seleccione ---</option>
-
+                <select name="inc_agente" class="form-control selectpicker" required>
+                            <?php 
+                                $agente = DB::table('trabajador')
+                                ->where('trabajador.trab_dni','=',$inc->inc_agente)->first();
+                            ?>
+                    <option value="{{$inc->inc_agente}}" >{{$agente->trab_apellidos.', '.$agente->trab_nombres}}</option>
                 </select>
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Codigo Anydesk *</label>
-                <input type="text" name="inc_codanydesk" class="form-control">
+                <input type="text" name="inc_codanydesk" readonly value="{{$inc->inc_codanydesk}}" class="form-control">
             </div>
         </div>        
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Password Anydesk </label>
-                <input type="text" name="inc_passanydesk" class="form-control">
+                <input type="text" name="inc_passanydesk" readonly value="{{$inc->inc_passanydesk}}" class="form-control">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Observacion </label>
-            	<textarea type="text" name="inc_observacion" class="form-control" placeholder="Ingrese aqui su Observacion"></textarea>
+            	<textarea type="text" name="inc_observacion" readonly class="form-control" >{{$inc->inc_observacion}}</textarea>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
@@ -62,14 +65,19 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Tecnico Atender </label>
-                <input type="text" name="inc_passanydesk" class="form-control">
+                <select name="inc_tecnico" class="form-control selectpicker" data-live-search="true" required>
+                    <option value="" hidden>--- Seleccione ---</option>
+                    @foreach($tecnicos as $a)
+                        <option value="{{$a->trab_id}}">{{$a->trab_apellidos.', '.$a->trab_nombres}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
 
         <div class="col-xl-12 my-4">
             <div class="form-group">
-                <input type="submit" value="Atender" class="btn btn-warning">
+                <input type="submit" value="Actulizar" class="btn btn-warning">
                 <a href="{{url('incidencia')}}" class="btn btn-danger">Cancelar</a>
             </div>
         </div>

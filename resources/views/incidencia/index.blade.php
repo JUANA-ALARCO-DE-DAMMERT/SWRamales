@@ -65,8 +65,13 @@
                             @endif
 
                         </td>
-                        <td>       
-                            <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>                  
+                        <td>    
+                                @if ($inc->inc_estado == 0)
+                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>
+                                @elseif ($inc->inc_estado == 1)
+                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>
+                                @endif          
+                                              
                         </td>
                     </tr>
                     @endforeach

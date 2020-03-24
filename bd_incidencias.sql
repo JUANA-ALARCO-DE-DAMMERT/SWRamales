@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2020 a las 01:45:22
+-- Tiempo de generación: 24-03-2020 a las 04:58:15
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -43,7 +43,8 @@ CREATE TABLE `incidencia` (
 --
 
 INSERT INTO `incidencia` (`inc_id`, `inc_agente`, `inc_codanydesk`, `inc_passanydesk`, `inc_observacion`, `inc_estado`, `inc_tecnico`) VALUES
-(1, 70327395, '1021', '1021', 'no puedo conectarme al OCM', 2, 70327395);
+(1, 25428530, '1021', '1021', 'no puedo conectarme al OCM', 2, 70327395),
+(2, 25428530, '2030', '2030', 'prueba', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,9 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(1, 70327395, 1, NULL, NULL);
+(1, 70327395, 1, NULL, NULL),
+(2, 25428530, 3, NULL, NULL),
+(3, 74078065, 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -109,7 +112,9 @@ CREATE TABLE `trabajador` (
 --
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_apellidos`, `trab_nombres`, `trab_usuario`, `trab_est`) VALUES
-(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395, 1);
+(25428530, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 25428530, 1),
+(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395, 1),
+(74078065, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE ', 74078065, 1);
 
 -- --------------------------------------------------------
 
@@ -131,7 +136,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(70327395, '70327395', '$2y$10$7OmCskEol8y78sTECm9bg.IsWbPNc0/g/l.hiYBXilp6ZymBHyf.6', NULL, '2020-03-22 09:02:01', '2020-03-22 09:02:01');
+(25428530, '25428530', '$2y$10$AAxcL7t3BKLzWLgBVX5zt.4LI0jqqAET43mQTzCr2Q6zQi5G09Ocm', NULL, '2020-03-24 05:54:55', '2020-03-24 05:54:55'),
+(70327395, '70327395', '$2y$10$7OmCskEol8y78sTECm9bg.IsWbPNc0/g/l.hiYBXilp6ZymBHyf.6', NULL, '2020-03-22 09:02:01', '2020-03-22 09:02:01'),
+(74078065, '74078065', '$2y$10$vgoQbfW0x/ipdXlpyOOrdOx7M8F/f8hMicglD1lsiUqm5eNokBEF.', NULL, '2020-03-24 08:56:27', '2020-03-24 08:56:27');
 
 --
 -- Índices para tablas volcadas
@@ -180,7 +187,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `incidencia`
 --
 ALTER TABLE `incidencia`
-  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -192,13 +199,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70327396;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74078066;
 
 --
 -- Restricciones para tablas volcadas

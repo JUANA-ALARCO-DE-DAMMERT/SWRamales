@@ -24,10 +24,7 @@
 <!-- ------------------------------------------------------------------------------ -->
 @if(Auth::user()->hasrole('tecn'))
   @if($trab_data->trab_est == 1)
-<<<<<<< HEAD
 	   
-=======
->>>>>>> fa04d53a02e002e19d3de86380d0a5b96dc72feb
 	   <h1>Tecnico</h1>
 	   
 
@@ -38,11 +35,7 @@
    	    @endif
  @endif
 <!-- --------------------------------------------------------------------------------- -->
-<<<<<<< HEAD
  @if(Auth::user()->hasrole('agent'))
-=======
- @if(Auth::user()->hasrole('agen'))
->>>>>>> fa04d53a02e002e19d3de86380d0a5b96dc72feb
   @if($trab_data->trab_est == 1)
 	   
 		<h1>Agente</h1>

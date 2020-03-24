@@ -47,7 +47,11 @@ class IncidenciaController extends Controller
     public function edit(Request $request, $id)
     {
         $incidencia = Incidencia::find($id);
-        return view ('incidencia.edit',['inc'=>$incidencia]);
+        $tecnicos = DB::table('trabajador')
+                    ->join('role_user','role_user.user_id','trabajador.trab_id')
+                    ->where('role_user.role_id','=','2')
+                    ->get();
+        return view ('incidencia.edit',['inc'=>$incidencia,'tecnicos'=>$tecnicos]);
     }
 
     public function update(Request $request, $id)
