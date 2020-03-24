@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2020 a las 04:58:15
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 24-03-2020 a las 19:53:00
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,18 +33,10 @@ CREATE TABLE `incidencia` (
   `inc_agente` int(11) NOT NULL,
   `inc_codanydesk` varchar(10) NOT NULL,
   `inc_passanydesk` varchar(20) NOT NULL,
-  `inc_observacion` varchar(100) NOT NULL,
+  `inc_observacion` varchar(250) NOT NULL,
   `inc_estado` int(11) NOT NULL,
   `inc_tecnico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `incidencia`
---
-
-INSERT INTO `incidencia` (`inc_id`, `inc_agente`, `inc_codanydesk`, `inc_passanydesk`, `inc_observacion`, `inc_estado`, `inc_tecnico`) VALUES
-(1, 25428530, '1021', '1021', 'no puedo conectarme al OCM', 2, 70327395),
-(2, 25428530, '2030', '2030', 'prueba', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,8 +81,7 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
 (1, 70327395, 1, NULL, NULL),
-(2, 25428530, 3, NULL, NULL),
-(3, 74078065, 2, NULL, NULL);
+(6, 45820648, 1, '2020-03-24 05:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -112,9 +103,8 @@ CREATE TABLE `trabajador` (
 --
 
 INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_apellidos`, `trab_nombres`, `trab_usuario`, `trab_est`) VALUES
-(25428530, '25428530', 'MURILLO LOPEZ', 'FRANCISCA DE PAULA', 25428530, 1),
-(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395, 1),
-(74078065, '74078065', 'ARROYO PAREDES', 'ALDAIR YOE ', 74078065, 1);
+(45820648, '45820648', 'LEÓN JACOBO', 'NOÉ ULISES', 45820648, 1),
+(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395, 1);
 
 -- --------------------------------------------------------
 
@@ -136,9 +126,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `usuario`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(25428530, '25428530', '$2y$10$AAxcL7t3BKLzWLgBVX5zt.4LI0jqqAET43mQTzCr2Q6zQi5G09Ocm', NULL, '2020-03-24 05:54:55', '2020-03-24 05:54:55'),
-(70327395, '70327395', '$2y$10$7OmCskEol8y78sTECm9bg.IsWbPNc0/g/l.hiYBXilp6ZymBHyf.6', NULL, '2020-03-22 09:02:01', '2020-03-22 09:02:01'),
-(74078065, '74078065', '$2y$10$vgoQbfW0x/ipdXlpyOOrdOx7M8F/f8hMicglD1lsiUqm5eNokBEF.', NULL, '2020-03-24 08:56:27', '2020-03-24 08:56:27');
+(45820648, '45820648', '$2y$10$lengQmI93zp33/uwhzVkNOp8KlMPQU2AUKY/QparLI4OCpdRtKgXm', NULL, '2020-03-24 23:50:22', '2020-03-24 23:50:22'),
+(70327395, '70327395', '$2y$10$7OmCskEol8y78sTECm9bg.IsWbPNc0/g/l.hiYBXilp6ZymBHyf.6', NULL, '2020-03-22 09:02:01', '2020-03-22 09:02:01');
 
 --
 -- Índices para tablas volcadas
@@ -187,7 +176,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `incidencia`
 --
 ALTER TABLE `incidencia`
-  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -199,7 +188,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
