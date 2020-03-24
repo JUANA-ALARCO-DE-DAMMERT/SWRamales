@@ -14,13 +14,7 @@
     @if(Auth::user()->hasrole('admin'))
         @if($trab_data->trab_est == 1)
 
-
-
-
 		<h1>Administrador</h1>
-
-
-
 	    @else
 		    <div class="d-sm-flex align-items-center justify-content-between my-4">
 		      <h1 class="h4 mb-0 text-gray-800">No tienes acceso </h1>
@@ -29,7 +23,7 @@
  @endif
 <!-- ------------------------------------------------------------------------------ -->
 @if(Auth::user()->hasrole('tecn'))
-  @if($trab_data->trab_est == 2)
+  @if($trab_data->trab_est == 1)
 	   
 	   <h1>Tecnico</h1>
 
@@ -41,7 +35,7 @@
  @endif
 <!-- --------------------------------------------------------------------------------- -->
  @if(Auth::user()->hasrole('agent'))
-  @if($trab_data->trab_est == 3)
+  @if($trab_data->trab_est == 1)
 	   
 		<h1>Agente</h1>
 

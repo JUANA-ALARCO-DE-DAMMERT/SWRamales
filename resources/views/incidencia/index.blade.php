@@ -66,7 +66,7 @@
 
                         </td>
                         <td>       
-                            <a href="{{url('')}}" class="btn btn-sm btn-warning">Atender</a>                  
+                            <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>                  
                         </td>
                     </tr>
                     @endforeach

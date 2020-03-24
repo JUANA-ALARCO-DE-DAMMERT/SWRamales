@@ -6,12 +6,12 @@ use App\Incidencia;
 use Illuminate\Http\Request;
 use DB;
 
-class IncidenciaController extends Controller
+class AgenteincController extends Controller
 {
     public function index()
     {
         $data = DB::table('incidencia')
-                    //->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
+                    ->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
                     ->get();
         return view('incidencia.index',['incidencia'=>$data]);
     }
@@ -38,37 +38,4 @@ class IncidenciaController extends Controller
         $inc = Incidencia::create($data);
         return redirect()->route('incidencia.index')->with('status', 'Incidencia agregado correctamente!');
     }
-
-    public function show(Apoderado $apoderado)
-    {
-        //
-    }
-
-    public function edit(Request $request, $id)
-    {
-        $incidencia = Incidencia::find($id);
-        return view ('incidencia.edit',['inc'=>$incidencia]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        $incidencia = Incidencia::find($id);
-        $request->all();
-        $incidencia->update($request->all());
-        return redirect()->route('incidencia.index')->with('status', 'Incidencia atendida correctamente!');
-    }
-
-    public function destroy(Request $request, $id)
-    {
-        $apoderado = Apoderado::destroy($id);
-        return redirect()->route('apoderado.index')->with('status', 'Apoderado eliminado correctamente!');
-    }
-
-    public function consultarApod($dni){
-        $apoderado = DB::table('apoderado')
-                        ->where('apoderado.apod_dni','=',$dni)
-                        ->get();
-        return $apoderado;
-    }
-
 }

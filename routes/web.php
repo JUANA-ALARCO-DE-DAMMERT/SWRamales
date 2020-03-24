@@ -22,4 +22,5 @@ Auth::routes(['reset'=>false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 //controladores 
-Route::resource('incidencia','IncidenciaController')->middleware('auth');;
+Route::resource('incidencia','IncidenciaController')->middleware('auth');
+Route::resource('agenteinc','AgenteincController')->middleware('auth');
