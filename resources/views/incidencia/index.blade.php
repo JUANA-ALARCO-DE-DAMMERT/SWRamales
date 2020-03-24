@@ -20,8 +20,8 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+            <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0" >
+                <thead >
                     <th>Ticket</th>
                     <th>Nombre del Agente</th>
                     <th>Codigo Anydesk</th>
@@ -34,16 +34,16 @@
                 <tbody>
                     @foreach($incidencia as $inc)
                     <tr>
-                        <td>{{'00'.$inc->inc_id.'RAC'}}</td>
+                        <td >{{'0R0'.$inc->inc_id}}</td>
                             <?php 
                                 $agente = DB::table('trabajador')
                                 ->where('trabajador.trab_dni','=',$inc->inc_agente)->first();
                             ?>
-                        <td>{{$agente->trab_apellidos.', '.$agente->trab_nombres}}</td>
-                        <td>{{$inc->inc_codanydesk}}</td>
-                        <td>{{$inc->inc_passanydesk}}</td>
-                        <td>{{$inc->inc_observacion}}</td>
-                        <td>
+                        <td align="justify" >{{$agente->trab_apellidos.', '.$agente->trab_nombres}}</td>
+                        <td  align="center">{{$inc->inc_codanydesk}}</td>
+                        <td align="center">{{$inc->inc_passanydesk}}</td>
+                        <td width="25" width="25"  align="justify" >{{$inc->inc_observacion}}</td>
+                        <td align="center">
                                 @if ($inc->inc_estado == 0)
                                     <span class="badge badge-danger">Pendiente</span>
                                 @elseif ($inc->inc_estado == 1)
@@ -56,7 +56,7 @@
                                 $tecnico = DB::table('trabajador')
                                 ->where('trabajador.trab_dni','=',$inc->inc_tecnico)->first();
                             ?>
-                        <td>
+                        <td align="center">
                             
                             @if(!$inc->inc_tecnico)
                                 
@@ -67,9 +67,9 @@
                         </td>
                         <td>    
                                 @if ($inc->inc_estado == 0)
-                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>
+                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-info">Atender</a>
                                 @elseif ($inc->inc_estado == 1)
-                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-sm btn-warning">Atender</a>
+                                    <a href="{{url('incidencia/'.$inc->inc_id.'/edit')}}" class="btn btn-info">Atender</a>
                                 @endif          
                                               
                         </td>

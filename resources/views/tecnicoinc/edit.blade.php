@@ -13,7 +13,7 @@
       </div>
     @endif
 </div>
-<form action="{{url('incidencia/'.$inc->inc_id)}}" method="POST" class="my-3">
+<form action="{{url('tecnicoinc/'.$inc->inc_id)}}" method="POST" class="my-3">
     @method('PATCH')
     {{ csrf_field() }}
     <div class="row">
@@ -75,7 +75,7 @@
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" value="Actulizar" class="btn btn-warning">
-                <a href="{{url('incidencia')}}" class="btn btn-danger">Cancelar</a>
+                <a href="{{url('tecnicoinc')}}" class="btn btn-danger">Cancelar</a>
             </div>
         </div>
     </div>

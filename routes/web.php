@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 //controladores 
 Route::resource('incidencia','IncidenciaController')->middleware('auth');
 Route::resource('agenteinc','AgenteincController')->middleware('auth');
+Route::resource('tecnicoinc','TecnicoincController')->middleware('auth');
+Route::resource('mantenimiento','MantenimientoController')->middleware('auth');

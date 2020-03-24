@@ -12,9 +12,7 @@
 @section('contenido')
 <div class="mb-4">
     <div class="row">
-        <div class="col-xl-6">
-            <a href="{{url('agenteinc/create')}}" class="btn btn-primary">Registrar Incidencia</a>
-        </div>
+
         <div class="col-xl-6">
             @if (session('status'))
             <div class="alert alert-success">
@@ -30,8 +28,8 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0" >
-                <thead >
+            <table class="table table-hover table-bordered table-sm" id="dataTable" width="100%" cellspacing="0">
+                <thead>
                     <th>Ticket</th>
                     <th>Nombre del Agente</th>
                     <th>Codigo Anydesk</th>
@@ -39,6 +37,7 @@
                     <th>Observaciones</th>
                     <th>Estado</th>
                     <th>Tecnico que lo atiende</th>
+                    <th>opciones</th>
                 </thead>
                 <tbody>
                     @foreach($incidencia as $inc)
@@ -51,7 +50,7 @@
                         <td align="justify" >{{$agente->trab_apellidos.', '.$agente->trab_nombres}}</td>
                         <td  align="center">{{$inc->inc_codanydesk}}</td>
                         <td align="center">{{$inc->inc_passanydesk}}</td>
-                        <td width="15" width="15"  align="justify" >{{$inc->inc_observacion}}</td>
+                        <td width="25" width="25"  align="justify" >{{$inc->inc_observacion}}</td>
                         <td align="center">
                                 @if ($inc->inc_estado == 0)
                                     <span class="badge badge-danger">Pendiente</span>
@@ -65,7 +64,7 @@
                                 $tecnico = DB::table('trabajador')
                                 ->where('trabajador.trab_dni','=',$inc->inc_tecnico)->first();
                             ?>
-                        <td align="justify">
+                        <td align="center">
                             
                             @if(!$inc->inc_tecnico)
                                 
@@ -73,6 +72,14 @@
                                 {{$tecnico->trab_apellidos.', '.$tecnico->trab_nombres}}
                             @endif
 
+                        </td>
+                        <td>    
+                                @if ($inc->inc_estado == 0)
+                                    <a href="{{url('tecnicoinc/'.$inc->inc_id.'/edit')}}" class="btn btn-info">Atender</a>
+                                @elseif ($inc->inc_estado == 1)
+                                    <a href="{{url('tecnicoinc/'.$inc->inc_id.'/edit')}}" class="btn btn-info">Atender</a>
+                                @endif          
+                                              
                         </td>
                     </tr>
                     @endforeach

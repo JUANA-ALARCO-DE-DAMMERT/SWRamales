@@ -8,21 +8,20 @@ use DB;
 
 class AgenteincController extends Controller
 {
-    public function index()
+        public function index()
     {
         $data = DB::table('incidencia')
-                    ->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
+                    //->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
                     ->get();
-        return view('incidencia.index',['incidencia'=>$data]);
+        return view('agenteinc.index',['incidencia'=>$data]);
     }
-
     public function create()
     {
         $data = DB::table('trabajador')
                         ->join('role_user','role_user.user_id','trabajador.trab_id')
                         ->where('role_user.role_id','=','3')
                         ->get();
-        return view('incidencia.create',['agentes'=>$data]);
+        return view('agenteinc.create',['agentes'=>$data]);
     }
 
     public function store(Request $request)
@@ -36,6 +35,6 @@ class AgenteincController extends Controller
         ]);
         $data = $request->all();
         $inc = Incidencia::create($data);
-        return redirect()->route('incidencia.index')->with('status', 'Incidencia agregado correctamente!');
+        return redirect()->route('agenteinc.index')->with('status', 'Incidencia agregado correctamente!');
     }
 }

@@ -45,6 +45,9 @@
                     <span>Inicio</span></a>
                 </li>
 
+
+
+                @if(Auth::user()->hasrole('admin'))
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <li class="nav-item">
@@ -53,9 +56,6 @@
                     <span>Registrar Incidencias</span></a>
                 </li>
                 <hr class="sidebar-divider">
-
-                @if(Auth::user()->hasrole('admin'))
-
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
@@ -66,10 +66,10 @@
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                       <h6 class="collapse-header">Registrar</h6>
-                      <a class="collapse-item" href="{{url('')}}">Empleados</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Empleados</a>
                       <h6 class="collapse-header">Cargos:</h6>
-                      <a class="collapse-item" href="{{url('')}}">Tecnico</a>
-                      <a class="collapse-item" href="{{url('')}}">Agente</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Tecnico</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Agente</a>
                     </div>
                   </div>
                 </li>
@@ -81,6 +81,13 @@
                 @if(Auth::user()->hasrole('tecn'))
                 <!-- Divider -->
                 <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('tecnicoinc')}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Registrar Incidencias</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
                   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -90,20 +97,21 @@
                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                       <h6 class="collapse-header">Registrar</h6>
-                      <a class="collapse-item" href="{{url('empleado')}}">Empleados</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Empleados</a>
                       <h6 class="collapse-header">Cargos:</h6>
-                      <a class="collapse-item" href="{{url('tecnico')}}">Tecnico</a>
-                      <a class="collapse-item" href="{{url('agente')}}">Agente</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Tecnico</a>
+                      <a class="collapse-item" href="{{url('mantenimiento')}}">Agente</a>
                     </div>
                   </div>
                 </li>
                 @endif
 
-                @if(Auth::user()->hasrole('agent'))
+                @if(Auth::user()->hasrole('agen'))
+                <hr class="sidebar-divider">
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('agenteinc')}}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Registrar Incidencia</span></a>
+                    <span>Registrar Incidencias</span></a>
                 </li>
                 @endif
 

@@ -13,13 +13,13 @@
       </div>
     @endif
 </div>
-<form action="{{url('incidencia')}}" method="post">
+<form action="{{url('agenteinc')}}" method="post">
   @method('POST')
   {{ csrf_field() }}
     <div class="row">
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
-                <label for="">Nombre de Agente *</label>
+                <label for="">Nombre de Agente</label>
                 <select name="inc_agente" class="form-control selectpicker" data-live-search="true" required>
                     <option value="" hidden>--- Seleccione ---</option>
                     @foreach($agentes as $a)
@@ -36,14 +36,14 @@
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
-                <label for="">Password Anydesk *</label>
-                <input type="text" name="inc_passanydesk" class="form-control" placeholder="sino tiene Password colocar 'no tengo' ">
+                <label for="">Password Anydesk </label>
+                <input type="text" name="inc_passanydesk" class="form-control">
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
-                <label for="">Observacion o Problema que tenga *</label>
-            	<textarea type="text" name="inc_observacion"  class="form-control" maxlength="250" placeholder="Ingrese aqui su Observacion (max 100 caracteres)"></textarea>
+                <label for="">Observacion </label>
+            	<textarea type="text" name="inc_observacion" class="form-control" placeholder="Ingrese aqui su Observacion"></textarea>
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
@@ -57,13 +57,12 @@
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Registrar">
-                <a href="{{url('incidencia')}}" class="btn btn-danger">Cancelar</a>
+                <a href="{{url('agenteinc')}}" class="btn btn-danger">Cancelar</a>
             </div>
         </div>
     </div>
 </form>
 @endsection
-
 <script >
         function solonumeros(e){
        key = e.keyCode || e.which;
@@ -84,5 +83,4 @@
         }
     }
 //////
-
 </script>
