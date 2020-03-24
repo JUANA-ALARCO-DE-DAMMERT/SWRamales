@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registro de Incidencias</title>
-    <meta http-equiv="refresh" content="3">
-</head>
-<body>
-
-</body>
-</html>
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="mb-4">

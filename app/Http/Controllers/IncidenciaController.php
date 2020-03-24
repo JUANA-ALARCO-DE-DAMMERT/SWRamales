@@ -18,19 +18,22 @@ class IncidenciaController extends Controller
 
     public function create()
     {
-        return view('incidencia.create');
+        $data = DB::table('trabajador')
+                        ->join('role_user','role_user.user_id','trabajador.trab_id')
+                        ->where('role_user.role_id','=','3')
+                        ->get();
+        return view('incidencia.create',['agentes'=>$data]);
     }
 
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'apod_dni' => 'required|unique:apoderado,apod_dni|numeric|digits:8',
-        //     'apod_ape' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-        //     'apod_nom' => 'required|max:50|regex:/^[\pL\s\-]+$/u',
-        //     'apod_sexo' => 'required',
-        //     'apod_email' => 'nullable',
-        //     'apod_tel' => 'nullable|min:7|max:13'
-        // ]);
+        $this->validate($request,[
+            'inc_agente' => 'required',
+            'inc_codanydesk' => 'required',
+            'inc_passanydesk' => 'required',
+            'inc_observacion' => 'required',
+            'inc_estado' => 'required'
+        ]);
         $data = $request->all();
         $inc = Incidencia::create($data);
         return redirect()->route('incidencia.index')->with('status', 'Incidencia agregado correctamente!');

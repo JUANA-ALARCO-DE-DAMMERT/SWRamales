@@ -20,7 +20,12 @@
         <div class="col-xl-5 col-md-6">
             <div class="form-group">
                 <label for="">Nombre de Agente</label>
-                <input type="text" name="inc_agente" class="form-control">
+                <select name="inc_agente" class="form-control selectpicker" data-live-search="true" required>
+                    <option value="" hidden>--- Seleccione ---</option>
+                    @foreach($agentes as $a)
+                        <option value="{{$a->trab_id}}">{{$a->trab_apellidos.', '.$a->trab_nombres}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xl-5 col-md-6">
@@ -45,19 +50,10 @@
             <div class="form-group">
                 <label for="">Estado *</label>
                 <select name="inc_estado" class="form-control" >
-                  <option value="0" hidden>Pendiente</option>
+                  <option value="0" selected>Pendiente</option>
                 </select>
             </div>
-        </div>
-        <div class="col-xl-6">
-            <div class="form-group">
-                <label>Tecnico *</label>
-                <select name="inc_tecnico" class="form-control selectpicker" data-live-search="true" required>
-                  <option value="inc_tecnico" hidden>--- Seleccione ---</option>
-                    <option value="0">por elegir</option>
-                </select>
-            </div>
-        </div>       
+        </div>    
         <div class="col-xl-12 my-4">
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Registrar">

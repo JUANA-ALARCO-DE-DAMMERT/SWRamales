@@ -10,6 +10,7 @@ class Incidencia extends Model
     protected $primaryKey = 'inc_id';
     public $timestamps = false;
     protected $fillable = [
+        'inc_agente',
         'inc_codanydesk',
         'inc_passanydesk',
         'inc_observacion',
