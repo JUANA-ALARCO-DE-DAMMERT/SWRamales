@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-03-2020 a las 05:07:24
+-- Tiempo de generación: 24-03-2020 a las 01:45:22
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -38,6 +38,13 @@ CREATE TABLE `incidencia` (
   `inc_tecnico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `incidencia`
+--
+
+INSERT INTO `incidencia` (`inc_id`, `inc_agente`, `inc_codanydesk`, `inc_passanydesk`, `inc_observacion`, `inc_estado`, `inc_tecnico`) VALUES
+(1, 70327395, '1021', '1021', 'no puedo conectarme al OCM', 2, 70327395);
+
 -- --------------------------------------------------------
 
 --
@@ -57,9 +64,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin', NULL, NULL),
-(2, 'Tecnico', 'tecn', NULL, NULL),
-(3, 'Agente', 'agen', NULL, NULL);
+(1, 'admin', 'Administrador', NULL, NULL),
+(2, 'tecn', 'Tecnico', NULL, NULL),
+(3, 'agen', 'Agente', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,15 +100,16 @@ CREATE TABLE `trabajador` (
   `trab_dni` varchar(8) NOT NULL,
   `trab_apellidos` varchar(50) NOT NULL,
   `trab_nombres` varchar(50) NOT NULL,
-  `trab_usuario` int(10) UNSIGNED NOT NULL
+  `trab_usuario` int(10) UNSIGNED NOT NULL,
+  `trab_est` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `trabajador`
 --
 
-INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_apellidos`, `trab_nombres`, `trab_usuario`) VALUES
-(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395);
+INSERT INTO `trabajador` (`trab_id`, `trab_dni`, `trab_apellidos`, `trab_nombres`, `trab_usuario`, `trab_est`) VALUES
+(70327395, '70327395', 'RODRIGUEZ RICHARTE', 'JOSEPH JOQTAN', 70327395, 1);
 
 -- --------------------------------------------------------
 
@@ -172,7 +180,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `incidencia`
 --
 ALTER TABLE `incidencia`
-  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `inc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

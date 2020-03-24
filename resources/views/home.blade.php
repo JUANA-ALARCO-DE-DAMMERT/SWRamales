@@ -7,8 +7,8 @@
 @extends('plantilla.plantilla')
 @section('contenido')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Bienvenido: </h1>
-  <h2 class="h3 mb-0 text-gray-800">Cargo: </h2>
+  <h1 class="h3 mb-0 text-gray-800">Bienvenido: {{$trab_data->trab_apellidos . ', ' .$trab_data->trab_nombres}}</h1>
+  <h2 class="h3 mb-0 text-gray-800">Cargo: {{$trab_data->name}}</h2>
 </div>
 <div class="row">
     @if(Auth::user()->hasrole('admin'))
