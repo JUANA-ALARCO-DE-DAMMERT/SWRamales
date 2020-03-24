@@ -81,7 +81,7 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`, `created_at`, `updated_at`) VALUES
 (1, 70327395, 1, NULL, NULL),
-(6, 45820648, 1, '2020-03-24 05:00:00', NULL);
+(2, 45820648, 1, '2020-03-24 05:00:00', NULL);
 
 -- --------------------------------------------------------
 
