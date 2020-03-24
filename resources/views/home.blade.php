@@ -29,9 +29,9 @@
  @endif
 <!-- ------------------------------------------------------------------------------ -->
 @if(Auth::user()->hasrole('tecn'))
-  @if($trab_data->trab_est == 2)
-	   
+  @if($trab_data->trab_est == 1)
 	   <h1>Tecnico</h1>
+	   
 
 	    @else
 		    <div class="d-sm-flex align-items-center justify-content-between my-4">
@@ -40,8 +40,8 @@
    	    @endif
  @endif
 <!-- --------------------------------------------------------------------------------- -->
- @if(Auth::user()->hasrole('agent'))
-  @if($trab_data->trab_est == 3)
+ @if(Auth::user()->hasrole('agen'))
+  @if($trab_data->trab_est == 1)
 	   
 		<h1>Agente</h1>
 
