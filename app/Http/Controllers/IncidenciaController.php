@@ -11,7 +11,7 @@ class IncidenciaController extends Controller
     public function index()
     {
         $data = DB::table('incidencia')
-                    ->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
+                    //->join('trabajador','trabajador.trab_id','incidencia.inc_agente')
                     ->get();
         return view('incidencia.index',['incidencia'=>$data]);
     }

@@ -35,7 +35,11 @@
                     @foreach($incidencia as $inc)
                     <tr>
                         <td>{{'00'.$inc->inc_id.'RAC'}}</td>
-                        <td>{{$inc->trab_apellidos.",".$inc->trab_nombres}}</td>
+                            <?php 
+                                $agente = DB::table('trabajador')
+                                ->where('trabajador.trab_dni','=',$inc->inc_agente)->first();
+                            ?>
+                        <td>{{$agente->trab_apellidos.', '.$agente->trab_nombres}}</td>
                         <td>{{$inc->inc_codanydesk}}</td>
                         <td>{{$inc->inc_passanydesk}}</td>
                         <td>{{$inc->inc_observacion}}</td>
@@ -48,7 +52,19 @@
                                     <span class="badge badge-success">Atendido</span>
                                 @endif                            
                         </td>
-                        <td>{{$inc->trab_apellidos.",".$inc->trab_nombres}}</td>
+                            <?php 
+                                $tecnico = DB::table('trabajador')
+                                ->where('trabajador.trab_dni','=',$inc->inc_tecnico)->first();
+                            ?>
+                        <td>
+                            
+                            @if(!$inc->inc_tecnico)
+                                
+                            @else
+                                {{$tecnico->trab_apellidos.', '.$tecnico->trab_nombres}}
+                            @endif
+
+                        </td>
                         <td>       
                             <a href="{{url('')}}" class="btn btn-sm btn-warning">Atender</a>                  
                         </td>
